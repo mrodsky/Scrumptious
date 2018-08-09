@@ -26,4 +26,3 @@ Read our [Documentation](https://github.com/1806-jun04-net/Scrumptious/blob/mast
 
 ###### v 0.0.1
 
-[![Build status](https://vincenttso.visualstudio.com/Scrumptious/_apis/build/status/Scrumptious-CI)](https://vincenttso.visualstudio.com/Scrumptious/_build/latest?definitionId=2)
