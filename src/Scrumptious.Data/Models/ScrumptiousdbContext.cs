@@ -2,15 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace Scrumptious.MvcClient.Models
+namespace Scrumptious.Data.Models
 {
-    public partial class scrumptiousdbContext : DbContext
+    public partial class ScrumptiousdbContext : DbContext
     {
-        public scrumptiousdbContext()
+        public ScrumptiousdbContext()
         {
         }
 
-        public scrumptiousdbContext(DbContextOptions<scrumptiousdbContext> options)
+        public ScrumptiousdbContext(DbContextOptions<ScrumptiousdbContext> options)
             : base(options)
         {
         }
