@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Scrumptious.Testing.Library
 {
-    class SprintTest
+    public class SprintTest
     {
     }
 }
