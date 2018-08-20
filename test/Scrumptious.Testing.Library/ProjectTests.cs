@@ -13,7 +13,7 @@ namespace Scrumptious.Testing.Library
         [Fact]
         public void Test_ProjectHasName()
         {
-            sut.ProjectName = "billy bob";
+            sut.ProjectName = "billy bobby";
             Assert.IsType<string>(sut.ProjectName);
         }
 
