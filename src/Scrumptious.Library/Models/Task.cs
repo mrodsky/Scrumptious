@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Scrumptious.MvcClient.Models
+namespace Scrumptious.Library.Models
 {
     public partial class Task
     {

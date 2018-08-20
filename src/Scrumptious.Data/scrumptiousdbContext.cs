@@ -2,15 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace Scrumptious.Data.Models
+namespace Scrumptious.Data
 {
-    public partial class ScrumptiousdbContext : DbContext
+    public partial class scrumptiousdbContext : DbContext
     {
-        public ScrumptiousdbContext()
+        public scrumptiousdbContext()
         {
         }
 
-        public ScrumptiousdbContext(DbContextOptions<ScrumptiousdbContext> options)
+        public scrumptiousdbContext(DbContextOptions<scrumptiousdbContext> options)
             : base(options)
         {
         }

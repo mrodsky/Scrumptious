@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Scrumptious.Data.Models
+namespace Scrumptious.Library.Models
 {
     public partial class Step
     {
