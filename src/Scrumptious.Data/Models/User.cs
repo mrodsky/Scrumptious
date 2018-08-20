@@ -10,6 +10,8 @@ namespace Scrumptious.Data.Models
             Task = new HashSet<Task>();
         }
 
+
+
         public int UserId { get; set; }
       
 
