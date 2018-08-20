@@ -6,7 +6,6 @@ using Scrumptious.Library.Models;
 
 namespace Scrumptious.Data
 {
-
     public partial class scrumptiousdbContext : DbContext
     {
         public scrumptiousdbContext()
@@ -135,7 +134,6 @@ namespace Scrumptious.Data
                 entity.HasOne(d => d.FkUser)
                     .WithMany(p => p.Task)
                     .HasForeignKey(d => d.FkUserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_UserId");
             });
 
