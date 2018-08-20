@@ -27,7 +27,7 @@ namespace Scrumptious.Testing.Library
         [Fact]
         public void Test_ProjectModifyRequirement()
         {
-            sut.ProjectName = "billy bob";
+            sut.ProjectName = "billy bobb";
             Assert.IsType<string>(sut.ProjectName);
         }
 
