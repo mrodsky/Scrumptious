@@ -7,9 +7,9 @@ namespace Scrumptious.Library.Models
     {
         public Backlog()
         {
-            Task = new HashSet<Task>();
+            Task = new List<Task>();
         }
 
-        public ICollection<Task> Task { get; set; }
+        public List<Task> Task { get; set; }
     }
 }
