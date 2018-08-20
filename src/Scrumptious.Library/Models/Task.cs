@@ -14,7 +14,7 @@ namespace Scrumptious.Library.Models
         public string Name { get; set; }
         public string TaskDescription { get; set; }
         public string Requirements { get; set; }
-      
+        public bool Completed { get; set; }
         public ICollection<Step> Step { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace Scrumptious.Data.Models
 
         public int TaskId { get; set; }
      
-        public bool Completed { get; set; }
+        
         public int? FkUserId { get; set; }
         public int FkBacklogId { get; set; }
 
