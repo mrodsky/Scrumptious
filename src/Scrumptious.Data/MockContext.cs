@@ -1,19 +1,17 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.Extensions.Configuration;
 using Scrumptious.Library.Models;
 
 namespace Scrumptious.Data
 {
-
-    public partial class scrumptiousdbContext : DbContext
+    public partial class MockContext : DbContext
     {
-        public scrumptiousdbContext()
+        public MockContext()
         {
         }
 
-        public scrumptiousdbContext(DbContextOptions<scrumptiousdbContext> options)
+        public MockContext(DbContextOptions<scrumptiousdbContext> options)
             : base(options)
         {
         }
@@ -27,12 +25,7 @@ namespace Scrumptious.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var options = new ConfigurationBuilder().AddJsonFile("appSetting.dev.json");
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=tcp:scrumptious.database.windows.net,1433;Initial Catalog=scrumptiousdb;Persist Security Info=False;User ID=sqladmin;Password=Admin123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-            }
+            optionsBuilder.UseInMemoryDatabase("MockDBContext");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
