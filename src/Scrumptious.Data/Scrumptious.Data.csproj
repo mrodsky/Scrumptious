@@ -17,4 +17,10 @@
     <ProjectReference Include="..\Scrumptious.Library\Scrumptious.Library.csproj" />
   </ItemGroup>
 
+ <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet"
+                            Version="2.0.0" />
+  </ItemGroup>
+
+
 </Project>
