@@ -3,12 +3,16 @@ using System.Collections.Generic;
 
 namespace Scrumptious.Data.Models
 {
-    public class User : Scrumptious.Library.Models.User
+    public partial class User : Library.Models.User
     {
-        
+        public User()
+        {
+            Task = new HashSet<Task>();
+        }
 
         public int UserId { get; set; }
-
       
+
+        public ICollection<Task> Task { get; set; }
     }
 }
