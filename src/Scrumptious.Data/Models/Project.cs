@@ -14,6 +14,6 @@ namespace Scrumptious.Data.Models
    
         public bool Active { get; set; }
 
-        public ICollection<Sprint> Sprint { get; set; }
+        public new ICollection<Sprint> Sprint { get; set; }
     }
 }
