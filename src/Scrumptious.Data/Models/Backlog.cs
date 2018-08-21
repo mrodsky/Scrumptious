@@ -14,6 +14,6 @@ namespace Scrumptious.Data.Models
         public int FkSprintId { get; set; }
 
         public Sprint FkSprint { get; set; }
-        public ICollection<Task> Task { get; set; }
+        public new ICollection<Task> Task { get; set; }
     }
 }

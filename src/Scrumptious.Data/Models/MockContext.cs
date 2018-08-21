@@ -1,39 +1,38 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Scrumptious.Library.Models;
+using Scrumptious.Data.Models;
 
-namespace Scrumptious.Data.Models
+
+namespace Scrumptious.Data
 {
-    public partial class scrumptiousdbContext : DbContext
+    public partial class MockContext : DbContext
     {
-        public scrumptiousdbContext()
+        public MockContext()
         {
         }
 
-        public scrumptiousdbContext(DbContextOptions<scrumptiousdbContext> options)
+        public MockContext(DbContextOptions<scrumptiousdbContext> options)
             : base(options)
         {
         }
 
-        public virtual DbSet<Backlog> Backlog { get; set; }
-        public virtual DbSet<Project> Project { get; set; }
-        public virtual DbSet<Sprint> Sprint { get; set; }
-        public virtual DbSet<Step> Step { get; set; }
-        public virtual DbSet<Task> Task { get; set; }
-        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Models.Backlog> Backlog { get; set; }
+        public virtual DbSet<Models.Project> Project { get; set; }
+        public virtual DbSet<Models.Sprint> Sprint { get; set; }
+        public virtual DbSet<Models.Step> Step { get; set; }
+        public virtual DbSet<Models.Task> Task { get; set; }
+        public virtual DbSet<Models.User> User { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-
-                optionsBuilder.UseSqlServer("Server=tcp:scrumptious.database.windows.net,1433;Initial Catalog=scrumptiousdb;Persist Security Info=False;User ID=sqladmin;Password=Admin123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-            }
+            optionsBuilder.UseInMemoryDatabase("MockDBContext");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Backlog>(entity =>
+            modelBuilder.Entity<Models.Backlog>(entity =>
             {
                 entity.Property(e => e.FkSprintId).HasColumnName("fk_SprintId");
 
@@ -44,7 +43,7 @@ namespace Scrumptious.Data.Models
                     .HasConstraintName("fk_SprintId");
             });
 
-            modelBuilder.Entity<Project>(entity =>
+            modelBuilder.Entity<Models.Project>(entity =>
             {
                 entity.Property(e => e.ProjectDescription)
                     .IsRequired()
@@ -62,7 +61,7 @@ namespace Scrumptious.Data.Models
                     .HasColumnType("text");
             });
 
-            modelBuilder.Entity<Sprint>(entity =>
+            modelBuilder.Entity<Models.Sprint>(entity =>
             {
                 entity.Property(e => e.EndDate).HasColumnType("datetime2(0)");
 
@@ -86,7 +85,7 @@ namespace Scrumptious.Data.Models
                     .HasConstraintName("fk_ProjectId");
             });
 
-            modelBuilder.Entity<Step>(entity =>
+            modelBuilder.Entity<Models.Step>(entity =>
             {
                 entity.Property(e => e.FkTaskId).HasColumnName("fk_TaskId");
 
@@ -106,7 +105,7 @@ namespace Scrumptious.Data.Models
                     .HasConstraintName("fk_Step_TaskId");
             });
 
-            modelBuilder.Entity<Task>(entity =>
+            modelBuilder.Entity<Models.Task>(entity =>
             {
                 entity.Property(e => e.FkBacklogId).HasColumnName("fk_BacklogId");
 
@@ -134,10 +133,11 @@ namespace Scrumptious.Data.Models
                 entity.HasOne(d => d.FkUser)
                     .WithMany(p => p.Task)
                     .HasForeignKey(d => d.FkUserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_UserId");
             });
 
-            modelBuilder.Entity<User>(entity =>
+            modelBuilder.Entity<Models.User>(entity =>
             {
                 entity.Property(e => e.Email)
                     .IsRequired()

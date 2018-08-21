@@ -15,6 +15,6 @@ namespace Scrumptious.Data.Models
         public int UserId { get; set; }
       
 
-        public ICollection<Task> Task { get; set; }
+        public new ICollection<Task> Task { get; set; }
     }
 }
