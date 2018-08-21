@@ -18,6 +18,6 @@ namespace Scrumptious.Data.Models
 
         public Backlog FkBacklog { get; set; }
         public User FkUser { get; set; }
-        public ICollection<Step> Step { get; set; }
+        public new ICollection<Step> Step { get; set; }
     }
 }
