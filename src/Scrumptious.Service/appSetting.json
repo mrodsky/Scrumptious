@@ -3,5 +3,6 @@
   "$schema": "http://json.schemastore.org/project",
   "connectionString": "",
   "git": "push",
-  "git2": "push2"
+  "git2": "push2",
+  "git3": "push3"
 }

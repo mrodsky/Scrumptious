@@ -17,5 +17,10 @@ namespace Scrumptious.Library.Models
      
 
         public ICollection<Sprint> Sprint { get; set; }
+
+        public void AddSprint()
+        {
+            Sprint.Add(new Models.Sprint());
+        }
     }
 }

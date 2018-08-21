@@ -16,6 +16,6 @@ namespace Scrumptious.Data.Models
         public int FkProjectId { get; set; }
 
         public Project FkProject { get; set; }
-        public ICollection<Backlog> Backlog { get; set; }
+        public new ICollection<Backlog> Backlog { get; set; }
     }
 }
