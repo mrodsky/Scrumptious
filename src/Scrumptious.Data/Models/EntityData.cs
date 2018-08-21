@@ -13,82 +13,84 @@ namespace Scrumptious.Data.Models
 
         private static scrumptiousdbContext context = new scrumptiousdbContext();
 
-        public EntityData() { }
+        public EntityData() {}
 
 
-        public async Task<bool> SaveAsync<T>(T a) where T : class
+        public async void SaveAsync<T>(T a) where T : class
         {
             if (typeof(T) == typeof(Backlog))
             {
-                context.Backlog.Add(a as Backlog);
-                await context.SaveChangesAsync();
-                return true;
+                await System.Threading.Tasks.Task.Run(() =>
+                 {
+                     Mock.Backlog.Add(a as Backlog);
+                     Mock.SaveChangesAsync();
+                 });
+                
             }
             else if (typeof(T) == typeof(Project))
             {
-                context.Project.Add(a as Project);
-                await context.SaveChangesAsync();
-                return true;
+                Mock.Project.Add(a as Project);
+                await Mock.SaveChangesAsync();
+              
             }
             else if (typeof(T) == typeof(Sprint))
             {
 
-                context.Sprint.Add(a as Sprint);
-                await context.SaveChangesAsync();
-                return true;
+                Mock.Sprint.Add(a as Sprint);
+                await Mock.SaveChangesAsync();
+                
             }
             else if (typeof(T) == typeof(Step))
             {
 
-                context.Step.Add(a as Step);
-                await context.SaveChangesAsync();
-                return true;
+                Mock.Step.Add(a as Step);
+                await Mock.SaveChangesAsync();
+               
             }
             else if (typeof(T) == typeof(Task))
             {
 
-                context.Task.Add(a as Task);
-                await context.SaveChangesAsync();
-                return true;
+                Mock.Task.Add(a as Task);
+                await Mock.SaveChangesAsync();
+                
             }
             else if (typeof(T) == typeof(User))
             {
 
-                context.User.Add(a as User);
-                await context.SaveChangesAsync();
-                return true;
+                Mock.User.Add(a as User);
+                await Mock.SaveChangesAsync();
+                
             }
-            else
-            {
-                return false;
-            }
+          
         }
-            public async Task<T> ReadListAsync<T>(int id) where T : class
+
+            public T ReadList<T>(int id) where T : class
             {
             if (typeof(T) == typeof(Project))
             {
-                return await context.Project.SingleOrDefaultAsync(u => u.ProjectId == id) as T;
+                
+                return Mock.Project.SingleOrDefault(u => u.ProjectId == id) as T;
           
             }
             else if (typeof(T) == typeof(Backlog))
             {
-                return await context.Backlog.SingleOrDefaultAsync(u => u.BacklogId == id) as T;
+               return Mock.Backlog.SingleOrDefault(u => u.BacklogId == id) as T;
             }
             else if (typeof(T) == typeof(Sprint))
             {
-                return await context.Sprint.SingleOrDefaultAsync(u => u.SprintId == id) as T;
+                return  Mock.Sprint.SingleOrDefault(u => u.SprintId == id) as T;
             }
             if (typeof(T) == typeof(Step))
             {
-                return await context.Step.SingleOrDefaultAsync(u => u.StepId == id) as T;
+                return Mock.Step.SingleOrDefault(u => u.StepId == id) as T;
             }
             else if (typeof(T) == typeof(Task))
             {
-                return await context.Task.SingleOrDefaultAsync(u => u.TaskId == id) as T;
+               return Mock.Task.SingleOrDefault(u => u.TaskId == id) as T;
             }
             else if (typeof(T) == typeof(User))
             {
-                return await context.User.SingleOrDefaultAsync(u => u.UserId == id) as T;
+                return Mock.User.SingleOrDefault(u => u.UserId == id) as T;
             }
             else
                 return default(T);
