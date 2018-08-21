@@ -12,12 +12,17 @@ namespace Scrumptious.Library.Models
 
      
         public string Name { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime StartDate { get; set;}
+        public DateTime EndDate { get; set;}
         public string SprintDescription { get; set; }
     
 
     
         public ICollection<Backlog> Backlog { get; set; }
+
+        public void AddBacklog(Backlog BL)
+        {
+            Backlog.Add(BL);
+        }
     }
 }
