@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Scrumptious.Data.Models
 {
@@ -14,69 +16,79 @@ namespace Scrumptious.Data.Models
         public EntityData() { }
 
 
-
-        public void Save<T>(T a) where T : class
+        public async Task<bool> SaveAsync<T>(T a) where T : class
         {
             if (typeof(T) == typeof(Backlog))
             {
                 context.Backlog.Add(a as Backlog);
-                context.SaveChanges();
+                await context.SaveChangesAsync();
+                return true;
             }
             else if (typeof(T) == typeof(Project))
             {
                 context.Project.Add(a as Project);
-                context.SaveChanges();
+                await context.SaveChangesAsync();
+                return true;
             }
             else if (typeof(T) == typeof(Sprint))
             {
 
                 context.Sprint.Add(a as Sprint);
-                context.SaveChanges();
+                await context.SaveChangesAsync();
+                return true;
             }
             else if (typeof(T) == typeof(Step))
             {
 
                 context.Step.Add(a as Step);
-                context.SaveChanges();
+                await context.SaveChangesAsync();
+                return true;
             }
             else if (typeof(T) == typeof(Task))
             {
 
                 context.Task.Add(a as Task);
-                context.SaveChanges();
+                await context.SaveChangesAsync();
+                return true;
             }
             else if (typeof(T) == typeof(User))
             {
 
                 context.User.Add(a as User);
-                context.SaveChanges();
+                await context.SaveChangesAsync();
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
-            public T Read<T>(int id) where T : class
+            public async Task<T> ReadListAsync<T>(int id) where T : class
             {
             if (typeof(T) == typeof(Project))
             {
-                return context.Project.SingleOrDefault(u => u.ProjectId == id) as T;
+                return await context.Project.SingleOrDefaultAsync(u => u.ProjectId == id) as T;
+          
             }
             else if (typeof(T) == typeof(Backlog))
             {
-                return context.Backlog.SingleOrDefault(u => u.BacklogId == id) as T;
+                return await context.Backlog.SingleOrDefaultAsync(u => u.BacklogId == id) as T;
             }
             else if (typeof(T) == typeof(Sprint))
             {
-                return context.Sprint.SingleOrDefault(u => u.SprintId == id) as T;
+                return await context.Sprint.SingleOrDefaultAsync(u => u.SprintId == id) as T;
             }
             if (typeof(T) == typeof(Step))
             {
-                return context.Step.SingleOrDefault(u => u.StepId == id) as T;
+                return await context.Step.SingleOrDefaultAsync(u => u.StepId == id) as T;
             }
             else if (typeof(T) == typeof(Task))
             {
-                return context.Task.SingleOrDefault(u => u.TaskId == id) as T;
+                return await context.Task.SingleOrDefaultAsync(u => u.TaskId == id) as T;
             }
             else if (typeof(T) == typeof(User))
             {
-                return context.User.SingleOrDefault(u => u.UserId == id) as T;
+                return await context.User.SingleOrDefaultAsync(u => u.UserId == id) as T;
             }
             else
                 return default(T);
