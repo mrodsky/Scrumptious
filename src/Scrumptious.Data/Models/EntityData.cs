@@ -16,7 +16,6 @@ namespace Scrumptious.Data.Models
         public EntityData() { }
 
 
-
         public async Task<bool> SaveAsync<T>(T a) where T : class
         {
             if (typeof(T) == typeof(Backlog))
