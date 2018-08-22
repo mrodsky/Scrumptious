@@ -3,6 +3,7 @@ using Scrumptious.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xunit;
 
 namespace Scrumptious.Testing.Data
 {
@@ -11,6 +12,17 @@ namespace Scrumptious.Testing.Data
         private readonly MockContext mock = new MockContext();
         private readonly EntityData entity = new EntityData();
         private readonly scrumptiousdbContext ctx = new scrumptiousdbContext();
+        private User sut = new User();
 
+        [Fact]
+        public void Test_UserAddProject()
+        {
+            var s = sut.CreateProject("some name", "some requirements", "some desc");
+
+            mock.SaveAsync(s);
+
+            Assert.NotNull(mock.ReadList<Project>(1));
+
+        }
     }
 }
