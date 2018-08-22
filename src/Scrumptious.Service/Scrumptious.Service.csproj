@@ -2,9 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <ApplicationIcon />
-    <OutputType>Exe</OutputType>
-    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Scrumptious.Data\Scrumptious.Data.csproj" />
-    <ProjectReference Include="..\Scrumptious.Library\Scrumptious.Library.csproj" />
   </ItemGroup>
 
 </Project>
