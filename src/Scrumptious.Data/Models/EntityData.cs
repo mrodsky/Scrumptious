@@ -13,88 +13,67 @@ namespace Scrumptious.Data.Models
 
         private static scrumptiousdbContext context = new scrumptiousdbContext();
 
-        public EntityData() {}
+        public EntityData() { }
 
 
         public async void SaveAsync<T>(T a) where T : class
         {
             if (typeof(T) == typeof(Backlog))
             {
-                await System.Threading.Tasks.Task.Run(() =>
-                 {
-                     Mock.Backlog.Add(a as Backlog);
-                     Mock.SaveChangesAsync();
-                 });
-                
+                Mock.Backlog.Add(a as Backlog);
+                await Mock.SaveChangesAsync();
             }
             else if (typeof(T) == typeof(Project))
             {
-                await System.Threading.Tasks.Task.Run(() =>
-                {
-                    Mock.Project.Add(a as Project);
-                    Mock.SaveChangesAsync();
-                });
-               
-              
+                Mock.Project.Add(a as Project);
+                await Mock.SaveChangesAsync();
+
             }
             else if (typeof(T) == typeof(Sprint))
             {
-                await System.Threading.Tasks.Task.Run(() =>
-                {
-                     Mock.Sprint.Add(a as Sprint);
-                     Mock.SaveChangesAsync();
-                });
-               
-                
+
+                Mock.Sprint.Add(a as Sprint);
+                await Mock.SaveChangesAsync();
             }
+
             else if (typeof(T) == typeof(Step))
             {
-                await System.Threading.Tasks.Task.Run(() =>
-                {
-                   Mock.Step.Add(a as Step);
-                   Mock.SaveChangesAsync();
-                });
-                
-               
+
+                Mock.Step.Add(a as Step);
+                await Mock.SaveChangesAsync();
+
             }
             else if (typeof(T) == typeof(Task))
             {
-                await System.Threading.Tasks.Task.Run(() =>
-                {
-                    Mock.Task.Add(a as Task);
-                    Mock.SaveChangesAsync();
-                });
-                
-                
+
+                Mock.Task.Add(a as Task);
+                await Mock.SaveChangesAsync();
             }
             else if (typeof(T) == typeof(User))
             {
-                await System.Threading.Tasks.Task.Run(() =>
-                {
-                    Mock.User.Add(a as User);
-                    Mock.SaveChangesAsync();
-                });
-                
-                
+
+                Mock.User.Add(a as User);
+                await Mock.SaveChangesAsync();
+
             }
-          
+
         }
 
-            public T ReadList<T>(int id) where T : class
-            {
+        public T ReadList<T>(int id) where T : class
+        {
             if (typeof(T) == typeof(Project))
             {
-                
+
                 return Mock.Project.SingleOrDefault(u => u.ProjectId == id) as T;
-          
+
             }
             else if (typeof(T) == typeof(Backlog))
             {
-               return Mock.Backlog.SingleOrDefault(u => u.BacklogId == id) as T;
+                return Mock.Backlog.SingleOrDefault(u => u.BacklogId == id) as T;
             }
             else if (typeof(T) == typeof(Sprint))
             {
-                return  Mock.Sprint.SingleOrDefault(u => u.SprintId == id) as T;
+                return Mock.Sprint.SingleOrDefault(u => u.SprintId == id) as T;
             }
             if (typeof(T) == typeof(Step))
             {
@@ -102,7 +81,7 @@ namespace Scrumptious.Data.Models
             }
             else if (typeof(T) == typeof(Task))
             {
-               return Mock.Task.SingleOrDefault(u => u.TaskId == id) as T;
+                return Mock.Task.SingleOrDefault(u => u.TaskId == id) as T;
             }
             else if (typeof(T) == typeof(User))
             {
