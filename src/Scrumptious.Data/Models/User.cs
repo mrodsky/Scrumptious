@@ -25,6 +25,10 @@ namespace Scrumptious.Data.Models
             return P;
         }
 
+        public void AddProject(Project p)
+        {
+            mock.SaveAsync(p);
+        }
         public new ICollection<Task> Task { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace Scrumptious.Testing.Data
         {
             var s = sut.CreateProject("some name", "some requirements", "some desc");
 
-            mock.SaveAsync(s);
+            sut.AddProject(s);
 
             Assert.NotNull(mock.ReadList<Project>(1));
 
