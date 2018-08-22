@@ -15,83 +15,67 @@ namespace Scrumptious.Data.Models
 
         public EntityData() { }
 
-
-        public async Task<bool> SaveAsync<T>(T a) where T : class
+        public async void SaveAsync<T>(T a) where T : class
         {
             if (typeof(T) == typeof(Backlog))
             {
-                context.Backlog.Add(a as Backlog);
-                await context.SaveChangesAsync();
-                return true;
+                Mock.Backlog.Add(a as Backlog);
+                await Mock.SaveChangesAsync();
             }
             else if (typeof(T) == typeof(Project))
             {
-                context.Project.Add(a as Project);
-                await context.SaveChangesAsync();
-                return true;
+                Mock.Project.Add(a as Project);
+                await Mock.SaveChangesAsync();
             }
             else if (typeof(T) == typeof(Sprint))
             {
-
-                context.Sprint.Add(a as Sprint);
-                await context.SaveChangesAsync();
-                return true;
+                Mock.Sprint.Add(a as Sprint);
+                await Mock.SaveChangesAsync();
             }
             else if (typeof(T) == typeof(Step))
             {
-
-                context.Step.Add(a as Step);
-                await context.SaveChangesAsync();
-                return true;
+                Mock.Step.Add(a as Step);
+                await Mock.SaveChangesAsync();
             }
             else if (typeof(T) == typeof(Task))
             {
-
-                context.Task.Add(a as Task);
-                await context.SaveChangesAsync();
-                return true;
+                Mock.Task.Add(a as Task);
+                await Mock.SaveChangesAsync();
             }
             else if (typeof(T) == typeof(User))
             {
-
-                context.User.Add(a as User);
+                Mock.User.Add(a as User);
                 await context.SaveChangesAsync();
-                return true;
-            }
-            else
-            {
-                return false;
             }
         }
-            public async Task<T> ReadListAsync<T>(int id) where T : class
-            {
+        public async Task<List<T>> ReadListAsync<T>() where T : class
+        {
             if (typeof(T) == typeof(Project))
             {
-                return await context.Project.SingleOrDefaultAsync(u => u.ProjectId == id) as T;
-          
+                return await Mock.Project.ToListAsync() as List<T>;
             }
             else if (typeof(T) == typeof(Backlog))
             {
-                return await context.Backlog.SingleOrDefaultAsync(u => u.BacklogId == id) as T;
+                return await Mock.Backlog.ToListAsync() as List<T>;
             }
             else if (typeof(T) == typeof(Sprint))
             {
-                return await context.Sprint.SingleOrDefaultAsync(u => u.SprintId == id) as T;
+                return await Mock.Sprint.ToListAsync() as List<T>;
             }
             if (typeof(T) == typeof(Step))
             {
-                return await context.Step.SingleOrDefaultAsync(u => u.StepId == id) as T;
+                return await Mock.Step.ToListAsync() as List<T>;
             }
             else if (typeof(T) == typeof(Task))
             {
-                return await context.Task.SingleOrDefaultAsync(u => u.TaskId == id) as T;
+                return await Mock.Task.ToListAsync() as List<T>;
             }
             else if (typeof(T) == typeof(User))
             {
-                return await context.User.SingleOrDefaultAsync(u => u.UserId == id) as T;
+                return await Mock.User.ToListAsync() as List<T>;
             }
             else
-                return default(T);
+                return default(List<T>);
         }
     }
 }
