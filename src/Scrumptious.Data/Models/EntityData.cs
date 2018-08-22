@@ -15,7 +15,6 @@ namespace Scrumptious.Data.Models
 
         public EntityData() { }
 
-
         public async void SaveAsync<T>(T a) where T : class
         {
             if (typeof(T) == typeof(Backlog))
@@ -27,68 +26,62 @@ namespace Scrumptious.Data.Models
             {
                 Mock.Project.Add(a as Project);
                 await Mock.SaveChangesAsync();
-
             }
             else if (typeof(T) == typeof(Sprint))
             {
-
                 Mock.Sprint.Add(a as Sprint);
                 await Mock.SaveChangesAsync();
             }
-
             else if (typeof(T) == typeof(Step))
             {
-
                 Mock.Step.Add(a as Step);
                 await Mock.SaveChangesAsync();
-
             }
             else if (typeof(T) == typeof(Task))
             {
-
+                Mock.Step.Add(a as Step);
+                await Mock.SaveChangesAsync();
+            }
+            else if (typeof(T) == typeof(Task))
+            {
                 Mock.Task.Add(a as Task);
                 await Mock.SaveChangesAsync();
             }
             else if (typeof(T) == typeof(User))
             {
-
                 Mock.User.Add(a as User);
-                await Mock.SaveChangesAsync();
-
+                await context.SaveChangesAsync();
             }
-
         }
-
-        public T ReadList<T>(int id) where T : class
+      
+        public async Task<List<T>> ReadListAsync<T>() where T : class
         {
             if (typeof(T) == typeof(Project))
             {
-
-                return Mock.Project.SingleOrDefault(u => u.ProjectId == id) as T;
-
+                return await Mock.Project.ToListAsync() as List<T>;
             }
             else if (typeof(T) == typeof(Backlog))
             {
-                return Mock.Backlog.SingleOrDefault(u => u.BacklogId == id) as T;
+                return await Mock.Backlog.ToListAsync() as List<T>;
             }
             else if (typeof(T) == typeof(Sprint))
             {
-                return Mock.Sprint.SingleOrDefault(u => u.SprintId == id) as T;
+                return await Mock.Sprint.ToListAsync() as List<T>;
             }
             if (typeof(T) == typeof(Step))
             {
-                return Mock.Step.SingleOrDefault(u => u.StepId == id) as T;
+                return await Mock.Step.ToListAsync() as List<T>;
             }
             else if (typeof(T) == typeof(Task))
             {
-                return Mock.Task.SingleOrDefault(u => u.TaskId == id) as T;
+                return await Mock.Task.ToListAsync() as List<T>;
             }
             else if (typeof(T) == typeof(User))
             {
-                return Mock.User.SingleOrDefault(u => u.UserId == id) as T;
+                return await Mock.User.ToListAsync() as List<T>;
             }
             else
-                return default(T);
+                return default(List<T>);
         }
     }
 }
