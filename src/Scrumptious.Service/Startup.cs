@@ -36,11 +36,6 @@ namespace Scrumptious.Service
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
-
             app.UseCors(o => o.AllowAnyOrigin().AllowAnyMethod());
             app.UseMvc();
         }

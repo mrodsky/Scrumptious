@@ -15,14 +15,25 @@ namespace Scrumptious.Service.Controllers
     [Route("api/[controller]")]
     public class UserController : Controller
     {
-        private readonly scrumptiousdbContext sdb = new scrumptiousdbContext();
-        private readonly User user = new User();
 
-        [HttpGet]
-        public string Get()
+        private EntityData data;
+
+        public UserController()
         {
-            return user.FirstName + user.LastName + user.Email + user.Role;
+            data = new EntityData();
         }
 
+        [HttpGet("{ID:int}")]
+        [ProducesResponseType(typeof(IActionResult), 200)]
+        public async Task<IActionResult> Get(int ID)
+        {
+            return await System.Threading.Tasks.Task.Run(() =>
+            {
+                User U;
+                U = data.ReadList<User>(ID);
+                return Ok(U);
+            });
+        }
     }
+
 }
