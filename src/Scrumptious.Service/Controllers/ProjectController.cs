@@ -10,10 +10,9 @@ using Scrumptious.Data.Models;
 namespace Scrumptious.Service.Controllers
 {
     [Produces("application/json")]
-    [Route("api/[controller")]
+    [Route("api/[controller]")]
     public class ProjectController : Controller
     {
-      
         private EntityData data;
 
         public ProjectController()
@@ -21,7 +20,7 @@ namespace Scrumptious.Service.Controllers
             data = new EntityData();
         }
 
-        [HttpGet]
+        [HttpGet("{ID:int}")]
         [ProducesResponseType(typeof(IActionResult), 200)]
         public async Task<IActionResult> Get(int ID)
         {
