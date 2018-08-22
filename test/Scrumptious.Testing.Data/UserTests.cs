@@ -14,6 +14,8 @@ namespace Scrumptious.Testing.Data
         private readonly MockContext mock = new MockContext();
         private readonly EntityData entity = new EntityData();
         private readonly scrumptiousdbContext ctx = new scrumptiousdbContext();
+        private User sut = new User();
+
 
         public UserTests()
         {
@@ -57,5 +59,15 @@ namespace Scrumptious.Testing.Data
             Assert.Equal(expected, actual.UserId);
         }
 
+        [Fact]
+        public void Test_UserAddProject()
+        {
+            var s = sut.CreateProject("some name", "some requirements", "some desc");
+
+            sut.AddProject(s);
+
+            Assert.NotNull(mock.ReadList<Project>(1));
+
+        }
     }
 }

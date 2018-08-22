@@ -1,7 +1,6 @@
 {
-
   "$schema": "http://json.schemastore.org/project",
-  "connectionString": "",
+  "connectionString": "place your connection string here",
   "git": "push",
   "git2": "push2",
   "git3": "push3"
