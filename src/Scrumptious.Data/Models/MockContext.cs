@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Scrumptious.Library.Models;
 using Scrumptious.Data.Models;
-
+using System.Linq;
 
 namespace Scrumptious.Data
 {
@@ -156,5 +156,80 @@ namespace Scrumptious.Data
                     .HasMaxLength(20);
             });
         }
+
+        public async void SaveAsync<T>(T a) where T : class
+        {
+            if (typeof(T) == typeof(Models.Backlog))
+            {
+                Backlog.Add(a as Models.Backlog);
+                await SaveChangesAsync();
+            }
+            else if (typeof(T) == typeof(Models.Project))
+            {
+                Project.Add(a as Models.Project);
+                await SaveChangesAsync();
+
+            }
+            else if (typeof(T) == typeof(Models.Sprint))
+            {
+
+                Sprint.Add(a as Models.Sprint);
+                await SaveChangesAsync();
+            }
+
+            else if (typeof(T) == typeof(Models.Step))
+            {
+
+               Step.Add(a as Models.Step);
+                await SaveChangesAsync();
+
+            }
+            else if (typeof(T) == typeof(Models.Task))
+            {
+
+                Task.Add(a as Models.Task);
+                await SaveChangesAsync();
+            }
+            else if (typeof(T) == typeof(Models.User))
+            {
+
+                User.Add(a as Models.User);
+                await SaveChangesAsync();
+
+            }
+
+        }
+
+        public T ReadList<T>(int id) where T : class
+        {
+            if (typeof(T) == typeof(Models.Project))
+            {
+                return Project.SingleOrDefault(u => u.ProjectId == id) as T;
+            }
+            else if (typeof(T) == typeof(Models.Backlog))
+            {
+                return Backlog.SingleOrDefault(u => u.BacklogId == id) as T;
+            }
+            else if (typeof(T) == typeof(Models.Sprint))
+            {
+                return Sprint.SingleOrDefault(u => u.SprintId == id) as T;
+            }
+            if (typeof(T) == typeof(Models.Step))
+            {
+                return Step.SingleOrDefault(u => u.StepId == id) as T;
+            }
+            else if (typeof(T) == typeof(Models.Task))
+            {
+                return Task.SingleOrDefault(u => u.TaskId == id) as T;
+            }
+            else if (typeof(T) == typeof(Models.User))
+            {
+                return User.SingleOrDefault(u => u.UserId == id) as T;
+            }
+            else
+                return default(T);
+        }
+
+
     }
 }

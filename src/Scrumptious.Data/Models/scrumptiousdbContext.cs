@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
 namespace Scrumptious.Data.Models
 {
     public partial class scrumptiousdbContext : DbContext
     {
+
+        private readonly string path = "C:/Revature/Scrumptious/test/Scrumptious.Testing.Data/appSetting.dev.json";
+
         public scrumptiousdbContext()
         {
         }
@@ -26,17 +30,19 @@ namespace Scrumptious.Data.Models
         public virtual DbSet<User> User { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+
+        { 
             if (!optionsBuilder.IsConfigured)
             {
-                using (StreamReader reader = new StreamReader(@"appSetting.dev.json"))
+                using (StreamReader reader = new StreamReader(path))
                 {
                     var list = JsonConvert.DeserializeObject<Dictionary<string, string>>(reader.ReadToEnd());
                     optionsBuilder.UseSqlServer(list["connectionString"]);
                 }
-            }
-        }
 
+            }
+
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Backlog>(entity =>
