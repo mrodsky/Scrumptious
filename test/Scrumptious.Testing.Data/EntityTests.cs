@@ -35,7 +35,6 @@ namespace Scrumptious.Testing.Data
            sut.AddSprint();
            entity.SaveAsync(sut);
 
-            System.Threading.Thread.Sleep(4000);
             var expect = sut;
 
           var actual = entity.ReadList<Project>(1);
