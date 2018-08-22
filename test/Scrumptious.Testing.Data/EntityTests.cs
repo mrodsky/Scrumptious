@@ -30,16 +30,17 @@ namespace Scrumptious.Testing.Data
         }
 
         [Fact]
-        public void Read_Project_Async_Test()
+        public void SaveAndRead_Project_Async_Test()
         {
            sut.AddSprint();
            entity.SaveAsync(sut);
 
+            System.Threading.Thread.Sleep(4000);
             var expect = sut;
 
-            var actual = entity.ReadList<Project>(1);
-            Assert.True(1 <= mock.Project.Count());
-            Assert.Equal(expect.ProjectId, actual.ProjectId);
+          var actual = entity.ReadList<Project>(1);
+           Assert.True(1 <= mock.Project.Count());
+         Assert.Equal(expect.ProjectId, actual.ProjectId);
         }
 
         //[Fact]
