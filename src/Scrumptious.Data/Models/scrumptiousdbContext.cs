@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Newtonsoft.Json;
 
 namespace Scrumptious.Data.Models
 {
@@ -26,8 +29,11 @@ namespace Scrumptious.Data.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-
-                optionsBuilder.UseSqlServer("Server=tcp:scrumptious.database.windows.net,1433;Initial Catalog=scrumptiousdb;Persist Security Info=False;User ID=sqladmin;Password=Admin123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                using (StreamReader reader = new StreamReader(@"appSetting.dev.json"))
+                {
+                    var list = JsonConvert.DeserializeObject<Dictionary<string, string>>(reader.ReadToEnd());
+                    optionsBuilder.UseSqlServer(list["connectionString"]);
+                }
             }
         }
 
