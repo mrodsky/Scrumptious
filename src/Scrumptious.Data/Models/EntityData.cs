@@ -29,36 +29,52 @@ namespace Scrumptious.Data.Models
             }
             else if (typeof(T) == typeof(Project))
             {
-                Mock.Project.Add(a as Project);
-                await Mock.SaveChangesAsync();
+                await System.Threading.Tasks.Task.Run(() =>
+                {
+                    Mock.Project.Add(a as Project);
+                    Mock.SaveChangesAsync();
+                });
+               
               
             }
             else if (typeof(T) == typeof(Sprint))
             {
-
-                Mock.Sprint.Add(a as Sprint);
-                await Mock.SaveChangesAsync();
+                await System.Threading.Tasks.Task.Run(() =>
+                {
+                     Mock.Sprint.Add(a as Sprint);
+                     Mock.SaveChangesAsync();
+                });
+               
                 
             }
             else if (typeof(T) == typeof(Step))
             {
-
-                Mock.Step.Add(a as Step);
-                await Mock.SaveChangesAsync();
+                await System.Threading.Tasks.Task.Run(() =>
+                {
+                   Mock.Step.Add(a as Step);
+                   Mock.SaveChangesAsync();
+                });
+                
                
             }
             else if (typeof(T) == typeof(Task))
             {
-
-                Mock.Task.Add(a as Task);
-                await Mock.SaveChangesAsync();
+                await System.Threading.Tasks.Task.Run(() =>
+                {
+                    Mock.Task.Add(a as Task);
+                    Mock.SaveChangesAsync();
+                });
+                
                 
             }
             else if (typeof(T) == typeof(User))
             {
-
-                Mock.User.Add(a as User);
-                await Mock.SaveChangesAsync();
+                await System.Threading.Tasks.Task.Run(() =>
+                {
+                    Mock.User.Add(a as User);
+                    Mock.SaveChangesAsync();
+                });
+                
                 
             }
           
