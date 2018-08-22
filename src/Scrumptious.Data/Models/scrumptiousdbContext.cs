@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
 
 namespace Scrumptious.Data.Models
 {
@@ -24,11 +25,9 @@ namespace Scrumptious.Data.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
+            var options = new ConfigurationBuilder().AddJsonFile("appSetting.dev.json").Build();
 
-                optionsBuilder.UseSqlServer("Server=tcp:scrumptious.database.windows.net,1433;Initial Catalog=scrumptiousdb;Persist Security Info=False;User ID=sqladmin;Password=Admin123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-            }
+            optionsBuilder.UseSqlServer(options["connectionString"]);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

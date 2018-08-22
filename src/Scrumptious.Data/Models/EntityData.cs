@@ -39,6 +39,11 @@ namespace Scrumptious.Data.Models
             }
             else if (typeof(T) == typeof(Task))
             {
+                Mock.Step.Add(a as Step);
+                await Mock.SaveChangesAsync();
+            }
+            else if (typeof(T) == typeof(Task))
+            {
                 Mock.Task.Add(a as Task);
                 await Mock.SaveChangesAsync();
             }
@@ -48,6 +53,7 @@ namespace Scrumptious.Data.Models
                 await context.SaveChangesAsync();
             }
         }
+      
         public async Task<List<T>> ReadListAsync<T>() where T : class
         {
             if (typeof(T) == typeof(Project))
