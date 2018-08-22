@@ -1,8 +1,5 @@
 ﻿using Scrumptious.Data;
 using Scrumptious.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace Scrumptious.Testing.Data

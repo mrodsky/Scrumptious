@@ -11,11 +11,11 @@ namespace Scrumptious.Service.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
-    public class ProjectController : Controller
+    public class StepController : Controller
     {
         private EntityData data;
 
-        public ProjectController()
+        public StepController()
         {
             data = new EntityData();
         }
@@ -26,7 +26,7 @@ namespace Scrumptious.Service.Controllers
         {
             return await System.Threading.Tasks.Task.Run(() =>
             {
-                return Ok(data.ReadList<Project>(ID));
+                return Ok(data.ReadList<Step>(ID));
             });
         }
 
