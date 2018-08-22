@@ -1,6 +1,6 @@
 {
   "$schema": "http://json.schemastore.org/project",
-  "connectionString": "Server=tcp:scrumptious.database.windows.net,1433;Initial Catalog=scrumptiousdb;Persist Security Info=False;User ID=sqladmin;Password=Admin123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+  "connectionString": "place your connection string here",
   "git": "push",
   "git2": "push2",
   "git3": "push3"
