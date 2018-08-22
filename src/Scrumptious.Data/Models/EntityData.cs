@@ -20,40 +20,40 @@ namespace Scrumptious.Data.Models
         {
             if (typeof(T) == typeof(Backlog))
             {
-                Mock.Backlog.Add(a as Backlog);
-                await Mock.SaveChangesAsync();
+                context.Backlog.Add(a as Backlog);
+                await context.SaveChangesAsync();
             }
             else if (typeof(T) == typeof(Project))
             {
-                Mock.Project.Add(a as Project);
-                await Mock.SaveChangesAsync();
+                context.Project.Add(a as Project);
+                await context.SaveChangesAsync();
 
             }
             else if (typeof(T) == typeof(Sprint))
             {
 
-                Mock.Sprint.Add(a as Sprint);
-                await Mock.SaveChangesAsync();
+                context.Sprint.Add(a as Sprint);
+                await context.SaveChangesAsync();
             }
 
             else if (typeof(T) == typeof(Step))
             {
 
-                Mock.Step.Add(a as Step);
-                await Mock.SaveChangesAsync();
+                context.Step.Add(a as Step);
+                await context.SaveChangesAsync();
 
             }
             else if (typeof(T) == typeof(Task))
             {
 
-                Mock.Task.Add(a as Task);
-                await Mock.SaveChangesAsync();
+                context.Task.Add(a as Task);
+                await context.SaveChangesAsync();
             }
             else if (typeof(T) == typeof(User))
             {
 
-                Mock.User.Add(a as User);
-                await Mock.SaveChangesAsync();
+                context.User.Add(a as User);
+                await context.SaveChangesAsync();
 
             }
 
@@ -64,28 +64,28 @@ namespace Scrumptious.Data.Models
             if (typeof(T) == typeof(Project))
             {
 
-                return Mock.Project.SingleOrDefault(u => u.ProjectId == id) as T;
+                return context.Project.SingleOrDefault(u => u.ProjectId == id) as T;
 
             }
             else if (typeof(T) == typeof(Backlog))
             {
-                return Mock.Backlog.SingleOrDefault(u => u.BacklogId == id) as T;
+                return context.Backlog.SingleOrDefault(u => u.BacklogId == id) as T;
             }
             else if (typeof(T) == typeof(Sprint))
             {
-                return Mock.Sprint.SingleOrDefault(u => u.SprintId == id) as T;
+                return context.Sprint.SingleOrDefault(u => u.SprintId == id) as T;
             }
             if (typeof(T) == typeof(Step))
             {
-                return Mock.Step.SingleOrDefault(u => u.StepId == id) as T;
+                return context.Step.SingleOrDefault(u => u.StepId == id) as T;
             }
             else if (typeof(T) == typeof(Task))
             {
-                return Mock.Task.SingleOrDefault(u => u.TaskId == id) as T;
+                return context.Task.SingleOrDefault(u => u.TaskId == id) as T;
             }
             else if (typeof(T) == typeof(User))
             {
-                return Mock.User.SingleOrDefault(u => u.UserId == id) as T;
+                return context.User.SingleOrDefault(u => u.UserId == id) as T;
             }
             else
                 return default(T);
