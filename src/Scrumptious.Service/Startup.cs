@@ -20,7 +20,7 @@ namespace Scrumptious.Service
         public void ConfigureServices(IServiceCollection services)
         {
             Configuration = new ConfigurationBuilder()
-            .AddJsonFile("appSettings.json", optional: true)
+            .AddJsonFile("appSettings.dev.json", optional: true)
             .Build();
 
             services.AddDbContext<scrumptiousdbContext>(o => o.UseSqlServer(Configuration["connectionString"]));
