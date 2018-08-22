@@ -17,17 +17,29 @@ namespace Scrumptious.Library.Models
 
         public ICollection<Task> Task { get; set; }
 
-        public void AddProject(Project P)
-        {
 
+        public Project CreateProject(string n, string r, string d)
+        {
+            Project P = new Project()
+            {
+                ProjectName = n,
+                ProjectRequirements = r,
+                ProjectDescription = d
+            };
+            return P;
         }
+
+        //public void AddProject(Project P )
+        //{
+          
+        //}
 
         public void CompleteTask(Task T)
         {
             T.Completed = true;
         }
 
-        public List<Task> RequestTask()
+        public List<Task> ViewTask()
         {
             return new List<Task>();
         }

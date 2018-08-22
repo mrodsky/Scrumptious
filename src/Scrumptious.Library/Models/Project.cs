@@ -10,7 +10,6 @@ namespace Scrumptious.Library.Models
             Sprint = new HashSet<Sprint>();
         }
 
-        
         public string ProjectName { get; set; }
         public string ProjectRequirements { get; set; }
         public string ProjectDescription { get; set; }
