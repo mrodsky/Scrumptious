@@ -50,16 +50,6 @@ namespace Scrumptious.Testing.Library
 
 
         #region Methods
-        //[Fact]
-        public void Test_UserAddProject() //checks if when a user adds a project, that it is saved to the database
-        {
-            Project proj = new Project();
-
-            //sut.AddProject(proj);
-
-            // Assert.True(data.ReadProject(proj).Count > 0);
-        }
-
         [Fact]
         public void Test_UserCompleteTask()
         {
