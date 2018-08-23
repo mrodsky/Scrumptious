@@ -1,0 +1,54 @@
+﻿@model Scrumptious.Data.Models.Sprint
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sprint</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Completed)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Completed)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SprintDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SprintDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FkProject)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FkProject.ProjectDescription)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.SprintId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
