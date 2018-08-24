@@ -7,11 +7,14 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Scrumptious.Data.Models;
-
+using Newtonsoft.Json;
+using System.Net;
+using System.Net.Http;
 
 namespace Scrumptious.Service.Controllers
 {
     [Produces("application/json")]
+    [Consumes("application/json")]
     [Route("api/[controller]")]
     public class ProjectController : Controller
     {
@@ -30,6 +33,17 @@ namespace Scrumptious.Service.Controllers
             {
                 return Ok(data.ReadList<Project>(ID));
             });
+        }
+
+        [HttpPost]
+        public async System.Threading.Tasks.Task Post([FromBody] Project P)
+        {
+            await System.Threading.Tasks.Task.Run(() =>
+            {
+                data.SaveAsync(P);
+            });
+            
+    
         }
     }
 }
