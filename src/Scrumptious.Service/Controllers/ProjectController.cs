@@ -31,16 +31,5 @@ namespace Scrumptious.Service.Controllers
                 return Ok(data.ReadList<Project>(ID));
             });
         }
-
-        //[HttpPost]
-        //public async Task<IActionResult> Post()
-
-        //{
-        //   // var A = JsonConvert.SerializeObject(await req.ReadAsStringAsync());
-        //    //var content = JsonConvert.DeserializeObject<Project>();
-
-        //    //data.SaveAsync<Project>(content);
-        //    //return Ok(content);
-        //}
     }
 }
