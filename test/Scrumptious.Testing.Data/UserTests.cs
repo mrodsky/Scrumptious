@@ -14,7 +14,7 @@ namespace Scrumptious.Testing.Data
         private readonly MockContext mock = new MockContext();
         private readonly EntityData entity = new EntityData();
         private readonly scrumptiousdbContext ctx = new scrumptiousdbContext();
-        private User sut = new User();
+        
 
 
         public UserTests()
