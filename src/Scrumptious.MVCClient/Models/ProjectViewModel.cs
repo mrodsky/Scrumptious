@@ -12,7 +12,7 @@ namespace Scrumptious.MVCClient.Models
         {
 
         }
-        public int ProjectId { get; set; }
+        
         public bool Active { get; set; }
         public string ProjectName { get; set; }
         public string ProjectRequirements { get; set; }

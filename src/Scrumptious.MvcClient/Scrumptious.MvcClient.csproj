@@ -19,6 +19,6 @@
     <ProjectReference Include="..\Scrumptious.Library\Scrumptious.Library.csproj" />
   </ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties appsettings_1dev_1_1json__JSONSchema="http://json.schemastore.org/project" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>
