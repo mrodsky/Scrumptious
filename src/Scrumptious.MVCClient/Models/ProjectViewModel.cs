@@ -1,23 +1,17 @@
-﻿using Scrumptious.Library.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Scrumptious.MVCClient.Models
+namespace Scrumptious.MvcClient.Models
 {
     public class ProjectViewModel
     {
-        public ProjectViewModel()
-        {
-
-        }
-        
-        public bool Active { get; set; }
-        public string ProjectName { get; set; }
-        public string ProjectRequirements { get; set; }
-        public string ProjectDescription { get; set; }
-
-        public List<SprintViewModel> Sprint { get; set; }
+        public string projectName { get; set; }
+        public int projectId { get; set; }
+        public string projectDescription { get; set; }
+        public List<SprintViewModel> sprint { get; set; }
+        public bool active { get; set; }
+        public string projectRequirements { get; set; }
     }
 }
