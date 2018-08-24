@@ -4,18 +4,16 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Scrumptious.MvcClient.Models;
 using System.Threading;
+using System.Text;
 
 namespace Scrumptious.MVCClient.Controllers
 {
     [Route("[controller]")]
+    [Produces("application/json")]
     public class ProjectController : Controller
     {
         private readonly HttpClient http = new HttpClient();
 
-        public IActionResult Index()
-        {
-            return View();
-        }
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -26,16 +24,14 @@ namespace Scrumptious.MVCClient.Controllers
             return View();
         }
 
-        public IActionResult About()
+        [HttpPost]
+        public void Post()
         {
-            ViewData["Message"] = "Your application description page.";
-            return View();
+            var pvm = new ProjectViewModel() { projectName = "billy bob", active = false, projectDescription = "some desc",
+            projectRequirements = "something works"} ;
+            var content = JsonConvert.SerializeObject(pvm);
+            http.PostAsync("http://localhost:62021/api/project", new StringContent(content, Encoding.UTF8, "application/json"));
         }
 
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-            return View();
-        }
     }
 }
