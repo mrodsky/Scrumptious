@@ -8,7 +8,8 @@ namespace Scrumptious.MVCClient.Controllers
     { 
         public IActionResult Get()
         {
-            ViewData["pagetitle"] = "Home Page";
+            ViewData["pagetitle"] = "Scrumptious";
+            ViewBag.Title = "Scrumptious, the Scrum Master Program!";
             return View();
         }
     }

@@ -1,8 +1,19 @@
-﻿<form action="/Project/sort" method="get">
+﻿
+<form action="/Project/sort" method="get">
     <label for="ID">
         <strong>Select your project #:</strong><input type="number" id="ID" name="ID" min="1" max="100" required />    
     </label>
-    <button type="submit">Submit</button>
+    <button type="submit">Find it!</button>
+</form>
+@model Scrumptious.MvcClient.Models.ProjectViewModel
+<form asp-action="post" asp-controller="project" method="post">
+    <label for="ID">
+        <strong>Make a new project!</strong>
+        <strong>Give me the project name: </strong>@Html.TextBoxFor(m => m.projectName, new { @required = "required", @class = "form-control" })
+        <strong>What is it about?</strong>@Html.TextBoxFor(m => m.projectDescription, new { @required = "required", @class = "form-control" })
+        <strong>What are the requirements?</strong>@Html.TextBoxFor(m => m.projectRequirements, new { @required = "required", @class = "form-control" })
+    </label>
+    <button type="submit">Make it!</button>
 </form>
     <h1>@ViewBag.content.projectName</h1>
     <h1>@ViewBag.content.projectRequirements</h1>
