@@ -13,24 +13,15 @@ namespace Scrumptious.MVCClient.Controllers
     public class ProjectController : Controller
     {
         private readonly HttpClient http = new HttpClient();
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
             var x = await http.GetAsync("http://localhost:62021/api/project/1");
             var content = JsonConvert.DeserializeObject<ProjectViewModel>(await x.Content.ReadAsStringAsync());
-            ViewData["pagetitle"] = "Scrumptious";
-            ViewBag.Title = "Scrumptious, the Scrum Master Program!";
+            ViewData["pagetitle"] = "List of Projects";
             ViewBag.content = content;
             return View();
-        }
-
-        [HttpGet("{sort}")]
-        public IActionResult Get(string id)
-        {
-            ViewData["pagetitle"] = "Scrumptious";
-            ViewBag.Title = "Scrumptious, the Scrum Master Program!";
-            string s = Request.Query["ID"];
-            return Redirect("/project/" + s);
         }
 
         [HttpGet("{id:int}")]
@@ -38,20 +29,18 @@ namespace Scrumptious.MVCClient.Controllers
         {
             var x = await http.GetAsync("http://localhost:62021/api/project/" + id);
             var content = JsonConvert.DeserializeObject<ProjectViewModel>(await x.Content.ReadAsStringAsync());
-            ViewData["pagetitle"] = "Scrumptious";
-            ViewBag.Title = "Scrumptious, the Scrum Master Program!";
+            ViewData["pagetitle"] = "List of Projects";
             ViewBag.content = content;
             return View();
         }
 
         [HttpPost]
-        public IActionResult Post(ProjectViewModel data)
+        public void Post()
         {
-            data.active = false;
-            data.sprint = null;
-            var content = JsonConvert.SerializeObject(data);
+            var pvm = new ProjectViewModel() { projectName = "billy bob", active = false, projectDescription = "some desc",
+            projectRequirements = "something works", sprint = null} ;
+            var content = JsonConvert.SerializeObject(pvm);
             http.PostAsync("http://localhost:62021/api/project", new StringContent(content, Encoding.UTF8, "application/json"));
-            return Redirect("/project");
         }
 
     }

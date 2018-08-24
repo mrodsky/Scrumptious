@@ -1,0 +1,26 @@
+﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Scrumptious.MVCClient.Controllers
+{
+    [Route("[controller]")]
+    public class HomeController : Controller
+    { 
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            ViewData["Message"] = "Your application description page.";
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            ViewData["Message"] = "Your contact page.";
+            return View();
+        }
+    }
+}

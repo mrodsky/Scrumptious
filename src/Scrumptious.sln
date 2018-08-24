@@ -2,13 +2,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scrumptious.MvcClient", "Scrumptious.MvcClient\Scrumptious.MvcClient.csproj", "{02C2B28D-886B-4825-A1B8-B2C8CB1A983D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scrumptious.Library", "Scrumptious.Library\Scrumptious.Library.csproj", "{190E1F3C-9E45-4E03-9561-C2F6E7822155}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scrumptious.Data", "Scrumptious.Data\Scrumptious.Data.csproj", "{8ED17B96-2728-4B8B-8155-313B229F6050}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrumptious.Service", "Scrumptious.Service\Scrumptious.Service.csproj", "{1CCFC448-1D8A-42D6-96A5-0890435C2A0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scrumptious.Service", "Scrumptious.Service\Scrumptious.Service.csproj", "{1CCFC448-1D8A-42D6-96A5-0890435C2A0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrumptious.MVCClient", "Scrumptious.MVCClient\Scrumptious.MVCClient.csproj", "{6D784FA9-F2CD-4407-B177-D1091FF23B6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,18 +20,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{02C2B28D-886B-4825-A1B8-B2C8CB1A983D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02C2B28D-886B-4825-A1B8-B2C8CB1A983D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02C2B28D-886B-4825-A1B8-B2C8CB1A983D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{02C2B28D-886B-4825-A1B8-B2C8CB1A983D}.Debug|x64.Build.0 = Debug|Any CPU
-		{02C2B28D-886B-4825-A1B8-B2C8CB1A983D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{02C2B28D-886B-4825-A1B8-B2C8CB1A983D}.Debug|x86.Build.0 = Debug|Any CPU
-		{02C2B28D-886B-4825-A1B8-B2C8CB1A983D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02C2B28D-886B-4825-A1B8-B2C8CB1A983D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{02C2B28D-886B-4825-A1B8-B2C8CB1A983D}.Release|x64.ActiveCfg = Release|Any CPU
-		{02C2B28D-886B-4825-A1B8-B2C8CB1A983D}.Release|x64.Build.0 = Release|Any CPU
-		{02C2B28D-886B-4825-A1B8-B2C8CB1A983D}.Release|x86.ActiveCfg = Release|Any CPU
-		{02C2B28D-886B-4825-A1B8-B2C8CB1A983D}.Release|x86.Build.0 = Release|Any CPU
 		{190E1F3C-9E45-4E03-9561-C2F6E7822155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{190E1F3C-9E45-4E03-9561-C2F6E7822155}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{190E1F3C-9E45-4E03-9561-C2F6E7822155}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -68,6 +56,18 @@ Global
 		{1CCFC448-1D8A-42D6-96A5-0890435C2A0D}.Release|x64.Build.0 = Release|Any CPU
 		{1CCFC448-1D8A-42D6-96A5-0890435C2A0D}.Release|x86.ActiveCfg = Release|Any CPU
 		{1CCFC448-1D8A-42D6-96A5-0890435C2A0D}.Release|x86.Build.0 = Release|Any CPU
+		{6D784FA9-F2CD-4407-B177-D1091FF23B6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D784FA9-F2CD-4407-B177-D1091FF23B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D784FA9-F2CD-4407-B177-D1091FF23B6F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6D784FA9-F2CD-4407-B177-D1091FF23B6F}.Debug|x64.Build.0 = Debug|Any CPU
+		{6D784FA9-F2CD-4407-B177-D1091FF23B6F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6D784FA9-F2CD-4407-B177-D1091FF23B6F}.Debug|x86.Build.0 = Debug|Any CPU
+		{6D784FA9-F2CD-4407-B177-D1091FF23B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D784FA9-F2CD-4407-B177-D1091FF23B6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D784FA9-F2CD-4407-B177-D1091FF23B6F}.Release|x64.ActiveCfg = Release|Any CPU
+		{6D784FA9-F2CD-4407-B177-D1091FF23B6F}.Release|x64.Build.0 = Release|Any CPU
+		{6D784FA9-F2CD-4407-B177-D1091FF23B6F}.Release|x86.ActiveCfg = Release|Any CPU
+		{6D784FA9-F2CD-4407-B177-D1091FF23B6F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
