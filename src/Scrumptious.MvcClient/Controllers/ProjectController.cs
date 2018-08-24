@@ -21,6 +21,7 @@ namespace Scrumptious.MVCClient.Controllers
             ViewData["pagetitle"] = "Scrumptious";
             ViewBag.Title = "Scrumptious, the Scrum Master Program!";
             ViewBag.content = content;
+            ViewBag.userQuery = false;
             return View();
         }
 
@@ -30,6 +31,7 @@ namespace Scrumptious.MVCClient.Controllers
             ViewData["pagetitle"] = "Scrumptious";
             ViewBag.Title = "Scrumptious, the Scrum Master Program!";
             string s = Request.Query["ID"];
+            ViewBag.userQuery = true;
             return Redirect("/project/" + s);
         }
 
@@ -41,6 +43,7 @@ namespace Scrumptious.MVCClient.Controllers
             ViewData["pagetitle"] = "Scrumptious";
             ViewBag.Title = "Scrumptious, the Scrum Master Program!";
             ViewBag.content = content;
+            ViewBag.userQuery = true;
             return View();
         }
 
