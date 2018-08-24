@@ -18,7 +18,7 @@ namespace Scrumptious.MVCClient.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var x = await http.GetAsync("http://localhost:62021/api/sprint/1");
+            var x = await http.GetAsync("http://localhost:62021/api/sprint/1"); 
             var content = JsonConvert.DeserializeObject<SprintViewModel>(await x.Content.ReadAsStringAsync());
             ViewData["pagetitle"] = "List of Sprints";
             ViewBag.content = content;

@@ -49,8 +49,21 @@ namespace Scrumptious.Service.Controllers
             {
                 data.SaveAsync(P);
             });
-            
-    
+
+
         }
+
+        [HttpPost]
+        [Route("post")]
+        public async System.Threading.Tasks.Task Post([FromBody] Step P)
+        {
+            await System.Threading.Tasks.Task.Run(() =>
+            {
+                data.SaveAsync(P);
+            });
+
+
+        }
+
     }
 }

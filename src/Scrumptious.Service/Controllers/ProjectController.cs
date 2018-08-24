@@ -57,5 +57,20 @@ namespace Scrumptious.Service.Controllers
             
     
         }
+
+        [HttpPost]
+        [Route("post")]
+        public async System.Threading.Tasks.Task PostAddSprint([FromBody] Project P)
+        {
+            await System.Threading.Tasks.Task.Run(() =>
+            {
+                Project OfInterest = data.ReadList<Project>(P.ProjectId);
+                OfInterest.AddSprint();
+                data.SaveAsync(P);
+            });
+
+
+        }
+
     }
 }
