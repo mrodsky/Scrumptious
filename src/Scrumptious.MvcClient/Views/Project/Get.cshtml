@@ -15,8 +15,12 @@
     </label>
     <button type="submit">Make it!</button>
 </form>
-    <h1>@ViewBag.content.projectName</h1>
-    <h1>@ViewBag.content.projectRequirements</h1>
-    <h1>@ViewBag.content.active</h1>
-    <h1>@ViewBag.content.projectDescription</h1>
-    <h1>@ViewBag.content.projectId</h1>
+
+@if (ViewBag.userQuery == true)
+{
+    <h2>@ViewBag.content.projectName</h2>
+    <h2>@ViewBag.content.projectRequirements</h2>
+    <h2>@ViewBag.content.active</h2>
+    <h2>@ViewBag.content.projectDescription</h2>
+    <h2>@ViewBag.content.projectId</h2>
+}

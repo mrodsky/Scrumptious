@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using Scrumptious.MVCClient.Models;
 using System.Threading;
 using System.Text;
+using Scrumptious.MvcClient.Models;
 
 namespace Scrumptious.MVCClient.Controllers
 {
