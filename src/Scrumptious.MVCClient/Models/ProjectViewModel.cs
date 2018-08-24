@@ -12,10 +12,12 @@ namespace Scrumptious.MVCClient.Models
         {
 
         }
+        public int ProjectId { get; set; }
+        public bool Active { get; set; }
         public string ProjectName { get; set; }
         public string ProjectRequirements { get; set; }
         public string ProjectDescription { get; set; }
 
-        public ICollection<Sprint> Sprint { get; set; }
+        public List<SprintViewModel> Sprint { get; set; }
     }
 }
