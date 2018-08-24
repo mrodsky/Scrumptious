@@ -90,5 +90,36 @@ namespace Scrumptious.Data.Models
             else
                 return default(T);
         }
+
+        public T ReadAll<T>() where T : class
+        {
+            if (typeof(T) == typeof(Project))
+            {
+                return context.Project.ToList() as T;
+            }
+            else if (typeof(T) == typeof(Backlog))
+            {
+                return context.Backlog.ToList() as T;
+            }
+            else if (typeof(T) == typeof(Sprint))
+            {
+                return context.Sprint.ToList() as T;
+            }
+            if (typeof(T) == typeof(Step))
+            {
+                return context.Step.ToList() as T;
+            }
+            else if (typeof(T) == typeof(Task))
+            {
+                return context.Task.ToList() as T;
+            }
+            else if (typeof(T) == typeof(User))
+            {
+                return context.User.ToList() as T;
+            }
+            else
+                return default(T);
+        }
+
     }
 }
