@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Scrumptious.Data.Models;
 
 
@@ -30,5 +32,15 @@ namespace Scrumptious.Service.Controllers
             });
         }
 
+        //[HttpPost]
+        //public async Task<IActionResult> Post()
+
+        //{
+        //   // var A = JsonConvert.SerializeObject(await req.ReadAsStringAsync());
+        //    //var content = JsonConvert.DeserializeObject<Project>();
+
+        //    //data.SaveAsync<Project>(content);
+        //    //return Ok(content);
+        //}
     }
 }
