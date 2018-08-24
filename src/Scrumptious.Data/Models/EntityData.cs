@@ -62,10 +62,9 @@ namespace Scrumptious.Data.Models
         public T ReadList<T>(int id) where T : class
         {
             if (typeof(T) == typeof(Project))
-            {
-
+            { 
                 return context.Project.SingleOrDefault(u => u.ProjectId == id) as T;
-
+  
             }
             else if (typeof(T) == typeof(Backlog))
             {
@@ -91,35 +90,37 @@ namespace Scrumptious.Data.Models
                 return default(T);
         }
 
-        public T ReadAll<T>() where T : class
+        public List<T> ReadAll<T>() where T : class
         {
             if (typeof(T) == typeof(Project))
             {
-                return context.Project.ToList() as T;
+                return context.Project.AsEnumerable().ToList<Project>() as List<T>;
             }
             else if (typeof(T) == typeof(Backlog))
             {
-                return context.Backlog.ToList() as T;
+                return context.Backlog.ToList<Backlog>() as List<T>;
             }
             else if (typeof(T) == typeof(Sprint))
             {
-                return context.Sprint.ToList() as T;
+                return context.Sprint.ToList<Sprint>() as List<T>;
             }
             if (typeof(T) == typeof(Step))
             {
-                return context.Step.ToList() as T;
+                return context.Step.ToList<Step>() as List<T>;
             }
             else if (typeof(T) == typeof(Task))
             {
-                return context.Task.ToList() as T;
+                return context.Task.ToList<Task>() as List<T>;
             }
             else if (typeof(T) == typeof(User))
             {
-                return context.User.ToList() as T;
+                return context.User.ToList<User>() as List<T>;
             }
             else
-                return default(T);
+                return null;
         }
+
+        
 
     }
 }

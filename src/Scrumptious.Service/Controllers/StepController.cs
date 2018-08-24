@@ -20,6 +20,18 @@ namespace Scrumptious.Service.Controllers
             data = new EntityData();
         }
 
+        [HttpGet]
+        [Route("all")]
+        [ProducesResponseType(typeof(IActionResult), 200)]
+        public async Task<IActionResult> Get()
+        {
+            return await System.Threading.Tasks.Task.Run(() =>
+            {
+                return Ok(data.ReadAll<Step>());
+            });
+        }
+
+
         [HttpGet("{ID:int}")]
         [ProducesResponseType(typeof(IActionResult), 200)]
         public async Task<IActionResult> Get(int ID)
