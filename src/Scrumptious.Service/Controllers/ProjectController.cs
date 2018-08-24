@@ -34,11 +34,10 @@ namespace Scrumptious.Service.Controllers
         }
 
 
-        //here is the template for a post for a service all you have to do 
-        //is change the TYPE of what you want to save to the DB 
+        //here is the template for POST to save json as an object to the context. all you have to do 
+        //is change the TYPE of what you want to save.
         [HttpPost]
         public async System.Threading.Tasks.Task Post([FromBody] Project P)
-
         {
             await System.Threading.Tasks.Task.Run(() =>
             {
