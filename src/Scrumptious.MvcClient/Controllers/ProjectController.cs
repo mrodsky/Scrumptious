@@ -13,7 +13,6 @@ namespace Scrumptious.MVCClient.Controllers
     public class ProjectController : Controller
     {
         private readonly HttpClient http = new HttpClient();
-
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -22,6 +21,17 @@ namespace Scrumptious.MVCClient.Controllers
             ViewData["pagetitle"] = "List of Projects";
             ViewBag.content = content;
             return View();
+        }
+
+        [HttpGet("{sort}")]
+        public IActionResult Get(string id)
+        {
+            //var x = await http.GetAsync("http://localhost:62021/api/project/1");
+            //var content = JsonConvert.DeserializeObject<ProjectViewModel>(await x.Content.ReadAsStringAsync());
+            ViewData["pagetitle"] = "List of Projects";
+            //ViewBag.content = content;
+            string s = Request.Query["ID"];
+            return Redirect("/project/" + s);
         }
 
         [HttpGet("{id:int}")]
