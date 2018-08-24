@@ -14,10 +14,10 @@ namespace Scrumptious.MVCClient.Controllers
     {
         private readonly HttpClient http = new HttpClient();
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> Get(int id)
         {
-            var x = await http.GetAsync("http://localhost:62021/api/project/6");
+            var x = await http.GetAsync("http://localhost:62021/api/project/" + id);
             var content = JsonConvert.DeserializeObject<ProjectViewModel>(await x.Content.ReadAsStringAsync());
 
             ViewBag.content = content;
