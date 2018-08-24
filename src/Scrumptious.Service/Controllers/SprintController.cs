@@ -20,6 +20,17 @@ namespace Scrumptious.Service.Controllers
             data = new EntityData();
         }
 
+        [HttpGet]
+        [Route("all")]
+        [ProducesResponseType(typeof(IActionResult), 200)]
+        public async Task<IActionResult> Get()
+        {
+            return await System.Threading.Tasks.Task.Run(() =>
+            {
+                return Ok(data.ReadAll<Sprint>());
+            });
+        }
+
         [HttpGet("{ID:int}")]
         [ProducesResponseType(typeof(IActionResult), 200)]
         public async Task<IActionResult> Get(int ID)
@@ -31,7 +42,7 @@ namespace Scrumptious.Service.Controllers
         }
 
         [HttpPost]
-        public async System.Threading.Tasks.Task Post([FromBody] Data.Models.Task P)
+        public async System.Threading.Tasks.Task Post([FromBody] Sprint P)
         {
             await System.Threading.Tasks.Task.Run(() =>
             {

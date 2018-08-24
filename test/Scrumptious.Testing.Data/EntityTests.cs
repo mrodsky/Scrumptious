@@ -54,5 +54,15 @@ namespace Scrumptious.Testing.Data
             Assert.True(1 <= actual);
            
         }
+
+
+        [Fact]
+        public void Test_ReadAll_RealContext()
+        {
+            var expected = 4;
+            var actual = entity.ReadAll<Project>();
+
+            Assert.True(1 == 1);
+        }
     }
 }
