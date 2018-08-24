@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using Scrumptious.Data.Models;
 using Newtonsoft.Json;
 using System.Net;
+using System.Net.Http;
 
 namespace Scrumptious.Service.Controllers
 {
@@ -34,30 +35,15 @@ namespace Scrumptious.Service.Controllers
             });
         }
 
-
         [HttpPost]
-        //[ProducesResponseType(typeof(HttpResponse), 200)]
-        public async Task<HttpResponse> Post(HttpRequest req)
+        public async System.Threading.Tasks.Task Post([FromBody] Project P)
         {
-
-            try
+            await System.Threading.Tasks.Task.Run(() =>
             {
-                await System.Threading.Tasks.Task.Run(() =>
-                {
-                    var A = JsonConvert.SerializeObject(req.Body);
-                    var content = JsonConvert.DeserializeObject<Project>(A);
-                    data.SaveAsync<Project>(content);
-                });
-
-                Response.StatusCode = (int)HttpStatusCode.OK;
-                return Response;
-
-            } catch (Exception ex)
-            {
-
-                Response.StatusCode = 400;
-                return Response;
-            }
+                data.SaveAsync(P);
+            });
+            
+    
         }
     }
 }

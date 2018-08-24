@@ -30,5 +30,16 @@ namespace Scrumptious.Service.Controllers
             });
         }
 
+        [HttpPost]
+        public async System.Threading.Tasks.Task Post([FromBody] Backlog P)
+        {
+            await System.Threading.Tasks.Task.Run(() =>
+            {
+                data.SaveAsync(P);
+            });
+            
+    
+        }
+
     }
 }
