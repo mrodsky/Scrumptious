@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Scrumptious.Data.Models;
 using Newtonsoft.Json;
 using System.Net;
@@ -33,12 +35,8 @@ namespace Scrumptious.Service.Controllers
             });
         }
 
-
-        //here is the template for a post for a service all you have to do 
-        //is change the TYPE of what you want to save to the DB 
         [HttpPost]
         public async System.Threading.Tasks.Task Post([FromBody] Project P)
-
         {
             await System.Threading.Tasks.Task.Run(() =>
             {
@@ -47,6 +45,5 @@ namespace Scrumptious.Service.Controllers
             
     
         }
-
     }
 }

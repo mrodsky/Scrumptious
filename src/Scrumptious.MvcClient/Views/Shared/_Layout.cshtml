@@ -1,0 +1,27 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+</head>
+<body>
+    <header>
+        <h1><a asp-action="index" asp-controller="home">@ViewData["pagetitle"]</a></h1>
+        <nav>
+            <ul>
+                <li><a asp-action="index" asp-controller="user">User</a></li>
+                <li><a asp-action="index" asp-controller="order">Order</a></li>
+                <li><a asp-action="index" asp-controller="pizza">Pizzas</a></li>
+                @*<li>@Html.ActionLink("User2", "index", "User")</li>
+                    <li>@Html.ActionLink("Order2", "index", "Order")</li>
+                    <li>@Html.ActionLink("Pizza2", "index", "Pizza")</li>*@
+            </ul>
+        </nav>
+    </header>
+    <main>@RenderBody()</main>
+    <footer></footer>
+</body>
+</html>
